@@ -8,6 +8,7 @@ public class Main {
 
         Shop shop = new Shop();
 
+        // добавление продуктов
         try {
             shop.add(new Product(
                     1,
@@ -33,11 +34,12 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("\n------ Сортировка по цене ------");
+        System.out.println("------ Сортировка по цене ------");
         List<Product> list = shop.getAll();
         Collections.sort(list, new ProductSortByPrice());
         System.out.println(list);
 
+        // удаление продукта
         try {
             shop.remove(1);
         } catch (ExceptionProductNotFound e) {
@@ -49,6 +51,7 @@ public class Main {
         Collections.reverse(list);
         System.out.println(list);
 
+        // редактирование продукта
         try {
             shop.edit(new Product(
                 2,
